@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   final _pagesList = [
     NoticiasDeportes(),
     MisNoticias(),
-    PantallaTres(),
+    CrearNoticia(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -7,14 +7,14 @@ import 'package:google_login/models/new.dart';
 
 import 'bloc/create_news_bloc.dart';
 
-class PantallaTres extends StatefulWidget {
-  PantallaTres({Key key}) : super(key: key);
+class CrearNoticia extends StatefulWidget {
+  CrearNoticia({Key key}) : super(key: key);
 
   @override
-  _PantallaTresState createState() => _PantallaTresState();
+  _CrearNoticiaState createState() => _CrearNoticiaState();
 }
 
-class _PantallaTresState extends State<PantallaTres> {
+class _CrearNoticiaState extends State<CrearNoticia> {
   CreateNewsBloc newsBloc;
   File slectedImage;
   var autorTc = TextEditingController();
