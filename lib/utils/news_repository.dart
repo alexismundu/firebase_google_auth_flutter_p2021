@@ -26,7 +26,7 @@ class NewsRepository {
       queryParameters: {
         "q": query,
         "apiKey": apiKey,
-        "sortBy": 'publishedAt',
+        "sortBy": 'relevancy',
         "language": 'es',
         "pageSize": '5'
       },

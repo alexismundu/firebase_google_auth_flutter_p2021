@@ -11,13 +11,10 @@ class Noticias extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => NoticiaBloc(),
+        create: (context) =>
+            NoticiaBloc()..add(NoticiaRequested(query: 'futbol')),
         child: BlocBuilder<NoticiaBloc, NoticiaState>(
           builder: (context, state) {
-            if (state is NoticiaInitial) {
-              BlocProvider.of<NoticiaBloc>(context)
-                  .add(NoticiaRequested(query: 'sports'));
-            }
             if (state is NoticiaLoadFailure) {
               return Center(
                 child: Text("Algo salio mal", style: TextStyle(fontSize: 32)),

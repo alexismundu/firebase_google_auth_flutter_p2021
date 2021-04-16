@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_login/models/new.dart';
+import 'package:share/share.dart';
 
 class ItemNoticia extends StatelessWidget {
   final New noticia;
@@ -54,14 +55,28 @@ class ItemNoticia extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(height: 16),
-                      Text(
-                        "${noticia.author ?? "Autor no disponible"}",
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          fontSize: 12,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "${noticia.author ?? "Autor no disponible"}",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 12,
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.share),
+                            onPressed: () async {
+                              Share.share(
+                                  "${noticia.title}\n\n${noticia.description} ${noticia.urlToImage}",
+                                  subject:
+                                      "Hey esta noticia te podría interesar!");
+                            },
+                          )
+                        ],
                       ),
                     ],
                   ),
