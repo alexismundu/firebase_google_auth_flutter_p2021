@@ -11,8 +11,10 @@ part 'my_news_state.dart';
 
 class MyNewsBloc extends Bloc<MyNewsEvent, MyNewsState> {
   final _cFirestore = FirebaseFirestore.instance;
+  static final MyNewsBloc _singleton = MyNewsBloc._internal();
+  factory MyNewsBloc() => _singleton;
 
-  MyNewsBloc() : super(MyNewsInitial());
+  MyNewsBloc._internal() : super(MyNewsInitial());
 
   @override
   Stream<MyNewsState> mapEventToState(
