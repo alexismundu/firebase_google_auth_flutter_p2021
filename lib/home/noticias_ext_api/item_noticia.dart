@@ -28,7 +28,7 @@ class ItemNoticia extends StatelessWidget {
     String imagePath = await imagePathFuture;
     print("Downloaded image in path $imagePath");
     try {
-      Share.shareFiles(['${imagePath}'],
+      Share.shareFiles(['$imagePath'],
           text: '${noticia.title} - ${noticia.description}');
     } on PlatformException catch (error) {
       print(error);
