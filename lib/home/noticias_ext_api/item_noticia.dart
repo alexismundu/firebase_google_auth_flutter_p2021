@@ -1,10 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_login/models/new.dart';
+import 'package:image_downloader/image_downloader.dart';
 import 'package:share/share.dart';
 
 class ItemNoticia extends StatelessWidget {
   final New noticia;
   ItemNoticia({Key key, @required this.noticia}) : super(key: key);
+
+  Future<dynamic> downloadImage() async {
+    try {
+      // Saved with this method.
+      var imageId = await ImageDownloader.downloadImage(noticia.urlToImage);
+      if (imageId == null) {
+        return;
+      }
+      // Below is a method of obtaining saved image information.
+      return await ImageDownloader.findPath(imageId);
+    } on PlatformException catch (error) {
+      print(error);
+    }
+  }
+
+  Future<void> share() async {
+    print("Sharing new");
+    Future<dynamic> imagePathFuture = downloadImage();
+    String imagePath = await imagePathFuture;
+    print("Downloaded image in path $imagePath");
+    try {
+      Share.shareFiles(['${imagePath}'],
+          text: '${noticia.title} - ${noticia.description}');
+    } on PlatformException catch (error) {
+      print(error);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +98,7 @@ class ItemNoticia extends StatelessWidget {
                           ),
                           IconButton(
                             icon: Icon(Icons.share),
-                            onPressed: () async {
-                              Share.share(
-                                  "${noticia.title}\n\n${noticia.description} ${noticia.urlToImage}",
-                                  subject:
-                                      "Hey esta noticia te podría interesar!");
-                            },
+                            onPressed: share,
                           )
                         ],
                       ),

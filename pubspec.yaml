@@ -24,6 +24,7 @@ dependencies:
   firebase_storage: ^8.0.2
   image_picker: ^0.7.4
   share: ^2.0.1
+  image_downloader: ^0.30.0
 
 
 dev_dependencies:
