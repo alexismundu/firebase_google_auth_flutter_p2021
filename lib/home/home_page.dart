@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   final _titulosList = [
     "Deportes",
     "Mis noticias",
-    "???",
+    "Crear noticia",
   ];
   final _pagesList = [
     NoticiasDeportes(),
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.sports_kabaddi),
+            icon: Icon(Icons.fiber_new),
             label: "${_titulosList[0]}",
           ),
           BottomNavigationBarItem(
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
             label: "${_titulosList[1]}",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.thumb_up),
+            icon: Icon(Icons.file_upload),
             label: "${_titulosList[2]}",
           ),
         ],
