@@ -22,11 +22,13 @@ class NewsRepository {
     final _uri = Uri(
       scheme: 'https',
       host: 'newsapi.org',
-      path: 'v2/top-headlines',
+      path: '/v2/everything',
       queryParameters: {
-        "country": "mx",
-        "category": "sports",
-        "apiKey": apiKey
+        "q": query,
+        "apiKey": apiKey,
+        "sortBy": 'publishedAt',
+        "language": 'es',
+        "pageSize": '5'
       },
     );
     // TODO: completar request y deserializacion

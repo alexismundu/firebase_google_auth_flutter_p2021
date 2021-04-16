@@ -3,8 +3,8 @@ import 'package:google_login/utils/news_repository.dart';
 
 import 'item_noticia.dart';
 
-class NoticiasDeportes extends StatelessWidget {
-  const NoticiasDeportes({Key key}) : super(key: key);
+class Noticias extends StatelessWidget {
+  const Noticias({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
