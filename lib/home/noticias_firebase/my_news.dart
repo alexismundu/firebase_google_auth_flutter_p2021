@@ -38,11 +38,16 @@ class _MisNoticiasState extends State<MisNoticias> {
         },
         builder: (context, state) {
           if (state is LoadedNewsState) {
-            return ListView.builder(
-              itemCount: state.noticiasList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ItemNoticia(noticia: state.noticiasList[index]);
+            return RefreshIndicator(
+              onRefresh: () async {
+                BlocProvider.of<MyNewsBloc>(context).add(RequestAllNewsEvent());
               },
+              child: ListView.builder(
+                itemCount: state.noticiasList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ItemNoticia(noticia: state.noticiasList[index]);
+                },
+              ),
             );
           }
           return Center(child: CircularProgressIndicator());
