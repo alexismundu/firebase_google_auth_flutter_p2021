@@ -28,7 +28,10 @@ class Noticias extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   TextFormField(
-                    // controller: _textController,
+                    onFieldSubmitted: (value) {
+                      BlocProvider.of<NoticiaBloc>(context)
+                          .add(NoticiaRequested(query: value));
+                    },
                     decoration: InputDecoration(
                       labelText: 'Buscar...',
                       hintText: 'Deportes',
