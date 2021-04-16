@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_login/bloc/auth_bloc.dart';
 import 'package:google_login/home/noticias_firebase/my_news.dart';
-import 'noticias_ext_api/noticias_deportes.dart';
+import 'noticias_ext_api/noticias.dart';
 import 'package:google_login/home/noticias_firebase/create_news.dart';
 
 class HomePage extends StatefulWidget {
